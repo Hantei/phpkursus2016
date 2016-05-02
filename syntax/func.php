@@ -5,6 +5,8 @@
 
 function getname($name)
 {
+    global $names;
+    
 $names = "koer    123
 kass    423434
 kukk    332
