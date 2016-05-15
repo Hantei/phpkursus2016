@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016
 //Ylesanne 0202
 
@@ -23,5 +26,6 @@ $animals[9]="gorilla";
 foreach ($animals as $key => $val) {
 	echo "Mul on kodus $val, tema kohanäit on $key<br>"; }
 
+echo "<br><strong>Ylesanne 0202</strong>";
 
 ?>

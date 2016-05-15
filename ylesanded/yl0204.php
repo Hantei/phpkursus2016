@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016
 //Ylesanne 0204
 
@@ -16,7 +19,8 @@ $andmed[sugu]="mees";
 $andmed[rahvus]="eestlane";
 $andmed[keel]="eesti";
 
-echo "$andmed[nimi] on $andmed[vanus] aastane $andmed[sugu]. $andmed[nimi] on $andmed[rahvus] ning tema emakeel on $andmed[keel] keel.";
+echo "$andmed[nimi] on $andmed[vanus] aastane $andmed[sugu]. $andmed[nimi] on $andmed[rahvus] ning tema emakeel on $andmed[keel] keel. <br>";
 
+echo "<br><strong>Ylesanne 0204</strong>";
 
 ?>

@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016
 //Ylesanne 0203
 
@@ -15,5 +18,6 @@ $GOT = array('Emilia Clarke', 'Kit Harington', 'Lena Headey', 'Maisie Williams',
 for ($i=0; $i<=sizeof($GOT)-1; $i++) {
 	echo "$GOT[$i] <br>"; }
 
+echo "<br><strong>Ylesanne 0203</strong>";
 
 ?>

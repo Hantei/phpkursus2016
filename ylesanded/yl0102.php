@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 30.04.2016
 //Ylesanne 0102
 

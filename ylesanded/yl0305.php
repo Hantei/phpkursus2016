@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0305
 
@@ -13,7 +16,6 @@ Teha funktsioon nimega "string_info". Funktsiooni sisendargumendiks olgu teksti 
 5. Tsükliga loetakse kokku ja kuvatakse ekraanile mitu "a" tähte stringis esineb.
 
 */
-
 
 function string_info($string) {
 	$strlen = strlen($string);
@@ -47,4 +49,7 @@ string_info($string2);
 echo '</p><p>';
 string_info('iAyde873AaddTty');
 echo '</p>';
+
+echo "<br><strong>Ylesanne 0305</strong>";
+
 ?>

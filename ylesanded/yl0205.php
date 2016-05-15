@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016
 //Ylesanne 0205
 
@@ -29,6 +32,6 @@ for ($i = 1; $i < 4; $i++) {
   }
 }
 
-
+echo "<br><strong>Ylesanne 0205</strong>";
 
 ?>

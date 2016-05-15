@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0301
 
@@ -49,5 +52,7 @@ function kuva_massiiv($mas) {
 }
 
 kuva_massiiv($mas);
+
+echo "<br><strong>Ylesanne 0301</strong>";
 
 ?>

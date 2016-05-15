@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0304
 
@@ -59,5 +62,7 @@ number_info(15);
 echo "<br>";
 number_info(200);
 echo "<br>";
+
+echo "<br><strong>Ylesanne 0304</strong>";
 
 ?>

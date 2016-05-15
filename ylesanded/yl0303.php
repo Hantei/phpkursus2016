@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=utf-8');
+
 //Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0303
 
@@ -55,5 +58,7 @@ $mas = vaheta_elemendid(3, 7, $mas);
 $mas = kustuta_element(1, $mas);
 
 kuva_massiiv($mas);
+
+echo "<br><strong>Ylesanne 0303</strong>";
 
 ?>
