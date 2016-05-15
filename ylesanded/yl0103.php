@@ -23,7 +23,7 @@ Järgnevas ülesandes tohib kasutada vaid IF tingimust, mooduli võtmist (mod %)
 */
 
 for ($i=100; $i<=1000; $i++) {
-	if ($i % 100 == 00) {
+	if ($i % 100 == 0) {
 		echo "$i <br>";
 	}
 }

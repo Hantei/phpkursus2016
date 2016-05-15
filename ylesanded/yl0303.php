@@ -31,7 +31,7 @@ $mas[9] = 'Mutt';
 function kuva_massiiv($mas) {
 	for ($i=0; $i<sizeof($mas); $i++) {
 		echo "$i. $mas[$i]<br>";
-		echo "<p>";
+		echo "<p> </p>";
 	}
 }
 

@@ -13,11 +13,11 @@ Nt. "Kodanik [nimi] on [vanus] aastane"
 
 */
 
-$andmed[nimi]="Jaanus";
-$andmed[vanus]="21";
-$andmed[sugu]="mees";
-$andmed[rahvus]="eestlane";
-$andmed[keel]="eesti";
+$andmed['nimi']="Jaanus";
+$andmed['vanus']="21";
+$andmed['sugu']="mees";
+$andmed['rahvus']="eestlane";
+$andmed['keel']="eesti";
 
 echo "$andmed[nimi] on $andmed[vanus] aastane $andmed[sugu]. $andmed[nimi] on $andmed[rahvus] ning tema emakeel on $andmed[keel] keel. <br>";
 

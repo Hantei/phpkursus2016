@@ -30,6 +30,8 @@ function number_info($i) {
 	else {
 		echo "$i on paarisarv";
 	}
+
+
 	if ($i > 10) {
 		echo ", suurem kui 10";
 	}
@@ -39,6 +41,8 @@ function number_info($i) {
 	else {
 		echo ", väiksem kui 10";
 	}
+
+
 	if ($i > 100) {
 		echo " ja suurem kui 100. ";
 	}
@@ -48,6 +52,8 @@ function number_info($i) {
 	else {
 		echo " ja väiksem kui 100. ";
 	}
+
+
 	echo "$i ruudus on: 2^$i = " . pow(2,$i);
 	echo " ja ruutjuur $i-st on " . pow($i, 1/2);
 }
