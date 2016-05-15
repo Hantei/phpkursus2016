@@ -1,5 +1,5 @@
 <?php
-//Hantei, phpkursus2016, 08.05.2016
+//Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0304
 
 /*
@@ -49,14 +49,15 @@ function number_info($i) {
 	echo " ja ruutjuur $i-st on " . pow($i, 1/2);
 }
 
-echo number_info(1);
+number_info(1);
 echo "<br>";
-echo number_info(8);
+number_info(8);
 echo "<br>";
-echo number_info(9);
+number_info(9);
 echo "<br>";
-echo number_info(15);
+number_info(15);
 echo "<br>";
-echo number_info(200);
+number_info(200);
+echo "<br>";
 
 ?>

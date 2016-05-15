@@ -1,5 +1,5 @@
 <?php
-//Hantei, phpkursus2016, 08.05.2016
+//Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0301
 
 /*
@@ -48,6 +48,6 @@ function kuva_massiiv($mas) {
 	}
 }
 
-echo kuva_massiiv($mas);
+kuva_massiiv($mas);
 
 ?>

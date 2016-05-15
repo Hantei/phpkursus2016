@@ -1,5 +1,5 @@
 <?php
-//Hantei, phpkursus2016, 08.05.2016
+//Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0305
 
 /*
@@ -14,10 +14,37 @@ Teha funktsioon nimega "string_info". Funktsiooni sisendargumendiks olgu teksti 
 
 */
 
+
 function string_info($string) {
+	$strlen = strlen($string);
+	$firstletter = $string[0];
+	$lastletter = substr($string, -1);
+	$lowercase = strtolower($string);
+	$uppercase = strtoupper($string);
+		echo 'String: <strong>' . $string . '</strong>';
+		echo '<br>';
+		echo 'Stringi pikkus on <strong>' . $strlen . ' </strong>tähemärki';
+		echo '<br>';
 	
+		echo 'Esimene tähemärk on: <strong>' . $firstletter . '</strong>';
+		echo '<br>';
+		echo 'Viimane tähemärk on: <strong>' . $lastletter . '</strong>';
+		echo '<br>';
+		echo 'Ainult väikesed tähed: <strong>' . $lowercase . '</strong>';
+		echo '<br>';
+		echo 'Ainult suured tähed: <strong>' . $uppercase . '</strong>';
+		echo '<br>';
+		echo '"A" tähti on stringis kokku <strong>' . substr_count($lowercase, 'a') . '</strong> tükki';
+
 }
 
-echo string_info();
-
+$string = 'AbCdeFghijklmNopqrsTuvwxyza2A3a4a5';
+$string2 = '1dsdAbCdeFghijkl3456234aaagetsdAAaa';
+echo '<p>';
+string_info($string);
+echo '</p><p>';
+string_info($string2);
+echo '</p><p>';
+string_info(iAyde873AaddTty);
+echo '</p>';
 ?>

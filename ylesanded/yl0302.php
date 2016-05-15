@@ -1,5 +1,5 @@
 <?php
-//Hantei, phpkursus2016, 08.05.2016
+//Hantei, phpkursus2016, 08.05.2016/15.05.2016
 //Ylesanne 0302
 
 /*
@@ -56,6 +56,6 @@ function vaheta_elemendid($i1, $i2, $mas)  {
 
 $mas = vaheta_elemendid(3, 7, $mas);
 
-echo kuva_massiiv($mas);
+kuva_massiiv($mas);
 
 ?>
