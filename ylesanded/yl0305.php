@@ -38,13 +38,13 @@ function string_info($string) {
 
 }
 
-$string = 'AbCdeFghijklmNopqrsTuvwxyza2A3a4a5';
+$string1 = 'AbCdeFghijklmNopqrsTuvwxyza2A3a4a5';
 $string2 = '1dsdAbCdeFghijkl3456234aaagetsdAAaa';
 echo '<p>';
-string_info($string);
+string_info($string1);
 echo '</p><p>';
 string_info($string2);
 echo '</p><p>';
-string_info(iAyde873AaddTty);
+string_info('iAyde873AaddTty');
 echo '</p>';
 ?>
