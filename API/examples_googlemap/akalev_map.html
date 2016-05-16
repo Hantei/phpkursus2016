@@ -1,0 +1,192 @@
+<html> 
+  <head> 
+    <title>Andres Kalev Google Maps API</title> 
+<!-- tmk.edu.ee key ABQIAAAATL9di-v6l4X9XtMiDEKW2hROKbum6Rc2eF9b_5oJlUsIDKGwbxTutnabLO7Y3SzloxvHu4hznkl0VQ --> 
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAATL9di-v6l4X9XtMiDEKW2hROKbum6Rc2eF9b_5oJlUsIDKGwbxTutnabLO7Y3SzloxvHu4hznkl0VQ" type="text/javascript"></script> 
+	<script src="http://sub1.econym.org.uk/gmap/elabel.js" type="text/javascript"></script>
+</head> 
+  <body onunload="GUnload()"> 
+
+    <!-- you can use tables or divs for the overall layout --> 
+
+     
+    <!-- override css --> 
+    <style> 
+    img { 
+      background: transparent; 
+      #border: 1px solid #DCDCDC; 
+      padding: 3px;
+	margin-bottom: 10px; 
+    } 
+    img.float-right { 
+      margin: 5px 0px 5px 15px;   
+    } 
+    img.float-left { 
+      margin: 5px 15px 5px 0px; 
+    } 
+	body{
+	color:red;
+	text-decoration:none;
+	
+	}
+	table{
+	font-size:20px;
+	font-family:"Times New Roman", Times, serif;
+	text-align:center;
+	text-decoration:none;
+	margin: 0 auto;  
+	}
+	
+	
+    </style> 
+
+
+    <table> 
+	
+      <tr> 
+        <td> 
+           <div id="map" style="width: 968px; height: 700px"></div> 
+        </td> 
+         
+      </tr> 
+    </table> 
+
+
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b>  
+      However, it seems JavaScript is either disabled or not supported by your browser.  
+      To view Google Maps, enable JavaScript by changing your browser options, and then  
+      try again. 
+    </noscript> 
+
+    <script type="text/javascript"> 
+    //<![CDATA[ 
+
+    if (GBrowserIsCompatible()) { 
+       
+      // this variable will collect the html which will eventually be placed in the side_bar 
+      var side_bar_html = ""; 
+	 
+      // arrays to hold copies of the markers and html used by the side_bar 
+      // because the function closure trick doesnt work there 
+      var gmarkers = []; 
+
+
+     // This function zooms in or out 
+      // its not necessary to check for out of range zoom numbers, because the API checks 
+      function myzoom(a) { 
+        map.setZoom(map.getZoom() + a); 
+      } 
+
+      function mymapmode(a) { 
+        map.setMapType(a); 
+      } 
+       
+      function mydesiredmap(maptype,mapzoom) { 
+        map.setMapType(maptype); 
+        map.setCenter(new GLatLng(59.414775, 24.724131), mapzoom); 
+      }       
+		
+	    var myIcon = new GIcon(G_DEFAULT_ICON);
+        myIcon.image = "akalev_API_pildid/asula.png";
+        var markerOptions = { icon:myIcon };
+	
+      // A function to create the marker and set up the event window 
+      function createMarker(point,name,html) { 
+        var marker = new GMarker(point, markerOptions); 
+        GEvent.addListener(marker, "click", function() { 
+          marker.openInfoWindowHtml(html); 
+        }); 
+	    // save the info we need to use later for the side_bar 
+        gmarkers.push(marker); 
+        // add a line to the side_bar html 
+        side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<\/a><br>'; 
+         return marker; 
+      } 
+
+
+      // This function picks up the click and opens the corresponding info window 
+      function myclick(i) { 
+        GEvent.trigger(gmarkers[i], "click"); 
+      } 
+       
+      <!-- google map coordinates --> 
+      <!-- http://www.gorissen.info/Pierre/maps/googleMapLocation.php --> 
+      <!-- http://www.dishpointer.com -->        
+      
+
+      // teen kaardi
+      var map = new GMap2(document.getElementById("map")); 
+      map.setMapType(G_SATELLITE_MAP); 
+      map.addControl(new GLargeMapControl3D());  
+	  map.setCenter(new GLatLng(59.436696,24.751511), 12);
+	  var customUI = map.getDefaultUI();
+	  customUI.controls.scalecontrol = false;
+	  map.setUI(customUI);
+       
+
+      // lisan punktid 
+      var point = new GLatLng(59.400496,24.816064); 
+      var marker = createMarker(point,"Tartu maantee","<b>Tartu maantee</b></b><img src='akalev_API_pildid/tartumnt.jpg'>") 
+      map.addOverlay(marker); 
+
+      var point = new GLatLng(59.352102,24.628976); 
+      var marker = createMarker(point,"Pärnu maantee","<b>Pärnu maantee</b></b><img src='akalev_API_pildid/parnumnt.jpg'>") 
+      map.addOverlay(marker);                                                   
+                        
+      var point = new GLatLng(59.415959,24.84498); 
+      var marker = createMarker(point,"Suur-Sõjamäe","<b>Suur-Sõjamäe</b><img src='akalev_API_pildid/suursojamae.jpg'>") 
+      map.addOverlay(marker);                          
+                        
+      var point = new GLatLng(59.442282,24.903402); 
+      var marker = createMarker(point,"Peterburi maantee","<b>Peterburi maantee</b></b><img src='akalev_API_pildid/peterburimnt.jpg'>") 
+      map.addOverlay(marker);      
+
+	  var point = new GLatLng(59.49844,24.829073); 
+      var marker = createMarker(point,"Ranna tee","<b>Ranna tee</b></b><img src='akalev_API_pildid/rannatee.jpg'>") 
+      map.addOverlay(marker); 	  
+	  
+	  var point = new GLatLng(59.429931,24.612794); 
+      var marker = createMarker(point,"Rannamõisa tee","<b>Rannamõisa tee</b></b><img src='akalev_API_pildid/rannamoisatee.jpg'>") 
+      map.addOverlay(marker);
+	  
+	  var point = new GLatLng(59.407202,24.619195); 
+      var marker = createMarker(point,"Paldiski maantee","<b>Paldiski maantee</b></b><img src='akalev_API_pildid/paldiskimnt.jpg'>") 
+      map.addOverlay(marker);
+	  
+	  var point = new GLatLng(59.363557,24.762468); 
+      var marker = createMarker(point,"Viljandi maantee","<b>Viljandi maantee</b></b><img src='akalev_API_pildid/viljandimnt.jpg'>") 
+      map.addOverlay(marker);
+	  
+	  var point = new GLatLng(59.460736,24.90582); 
+      var marker = createMarker(point,"Vana-Narva maantee","<b>Vana-Narva maantee</b></b><img src='akalev_API_pildid/vananarvamnt.jpg'>") 
+      map.addOverlay(marker);
+	  
+	  var point = new GLatLng(59.493168,24.878232); 
+      var marker = createMarker(point,"Pärnamäe tee","<b>Pärnamäe tee</b></b><img src='akalev_API_pildid/parnamae.jpg'>") 
+      map.addOverlay(marker);
+	  
+	  var label = new ELabel(new GLatLng(59.470722,24.76759), "Tallinna sisse- ja väljasõidud", "style1");
+	map.addOverlay(label);
+                        
+	
+	
+      // put the assembled side_bar_html contents into the side_bar div 
+      document.getElementById("side_bar").innerHTML = side_bar_html; 
+       
+    } 
+
+    else { 
+      alert("Sorry, the Google Maps API is not compatible with this browser"); 
+    } 
+
+    // This Javascript is based on code provided by the 
+    // Community Church Javascript Team 
+    // http://www.bisphamchurch.org.uk/    
+    // http://econym.org.uk/gmap/ 
+
+    //]]> 
+    </script> 
+     
+  </body> 
+
+</html>

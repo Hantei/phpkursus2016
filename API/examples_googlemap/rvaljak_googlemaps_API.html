@@ -1,0 +1,191 @@
+<html> 
+  <head> 
+    <title>Riho Väljak Google Maps API (Pargid)</title> 
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false&amp;key=ABQIAAAApWAWOmc-ouF_l9iWqTnKORROKbum6Rc2eF9b_5oJlUsIDKGwbxSUTmb0oHVdr9aWIcGu-TbmiNcMrg" type="text/javascript"></script>
+  
+  <b>Riho Väljak Google Maps API (Pargid)</b>
+  
+</head> 
+  <body onunload="GUnload()"> 
+
+    <!-- you can use tables or divs for the overall layout --> 
+
+     
+    <!-- override css --> 
+    <style> 
+    img { 
+      background: transparent; 
+      #border: 1px solid #DCDCDC; 
+      padding: 3px;
+	margin-bottom: 10px; 
+    } 
+    img.float-right { 
+      margin: 5px 0px 5px 15px;   
+    } 
+    img.float-left { 
+      margin: 5px 15px 5px 0px; 
+    } 
+	body{
+	color:black;
+	text-decoration:none;
+	
+    </style> 
+
+
+    <table> 
+	
+      <tr> 
+        <td> 
+           <div id="map" style="width: 1000px; height: 700px"></div> 
+        </td>    
+      </tr> 
+    </table> 
+
+
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b>  
+      However, it seems JavaScript is either disabled or not supported by your browser.  
+      To view Google Maps, enable JavaScript by changing your browser options, and then  
+      try again. 
+    </noscript> 
+
+    <script type="text/javascript"> 
+    //<![CDATA[ 
+
+    if (GBrowserIsCompatible()) { 
+       
+      // this variable will collect the html which will eventually be placed in the side_bar 
+      var side_bar_html = ""; 
+	 
+      // arrays to hold copies of the markers and html used by the side_bar 
+      // because the function closure trick doesnt work there 
+      var gmarkers = []; 
+
+
+     // This function zooms in or out 
+      // its not necessary to check for out of range zoom numbers, because the API checks 
+      function myzoom(a) { 
+        map.setZoom(map.getZoom() + a); 
+      } 
+
+      function mymapmode(a) { 
+        map.setMapType(a); 
+      } 
+       
+      function mydesiredmap(maptype,mapzoom) { 
+        map.setMapType(maptype); 
+        map.setCenter(new GLatLng(59.414775, 24.724131), mapzoom); 
+      }       
+		
+	    var myIcon = new GIcon(G_DEFAULT_ICON);
+        myIcon.image = "rvaljak_API_pildid/icon.png";
+        var markerOptions = { icon:myIcon };
+	
+      // A function to create the marker and set up the event window 
+      function createMarker(point,name,html) { 
+        var marker = new GMarker(point, markerOptions); 
+        GEvent.addListener(marker, "click", function() { 
+          marker.openInfoWindowHtml(html); 
+        }); 
+		
+	    // save the info we need to use later for the side_bar 
+        gmarkers.push(marker); 
+		
+        // add a line to the side_bar html 
+        side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<\/a><br>'; 
+         return marker; 
+      } 
+
+
+      // This function picks up the click and opens the corresponding info window 
+      function myclick(i) { 
+        GEvent.trigger(gmarkers[i], "click"); 
+      } 
+       
+      <!-- google map coordinates --> 
+      <!-- http://www.gorissen.info/Pierre/maps/googleMapLocation.php --> 
+      <!-- http://www.dishpointer.com -->        
+      
+
+      // teen kaardi
+      var map = new GMap2(document.getElementById("map")); 
+      map.setMapType(G_SATELLITE_MAP); 
+      map.addControl(new GLargeMapControl3D());  
+	  map.setCenter(new GLatLng(59.433685,24.736826), 12);
+	  var customUI = map.getDefaultUI();
+	  customUI.controls.scalecontrol = false;
+	  map.setUI(customUI);
+       
+
+// create the map
+      var map = new GMap2(document.getElementById("map"));
+      map.setMapType(G_SATELLITE_MAP);
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(59.438221, 24.794769), 13);
+
+      // add the points    
+      var point = new GLatLng(59.439315,24.793224);
+      var marker = createMarker(point,"Kadrioru park","<b>Kadrioru park</b></br></br><img src='rvaljak_API_pildid/kadriorg.jpg'>")
+      map.addOverlay(marker);
+
+      var point = new GLatLng(59.449613,24.729681);
+      var marker = createMarker(point,"Kalamaja kalmistupark","<b>Kalamaja kalmistupark</b></br></br><img src='rvaljak_API_pildid/kalamaja.jpg'>")
+      map.addOverlay(marker);
+
+      var point = new GLatLng(59.453539,24.684362);
+      var marker = createMarker(point,"Kopli kalmistupark<br>","<b>Kopli kalmistupark</b></br></br><img src='rvaljak_API_pildid/kopli.jpg'>")
+      map.addOverlay(marker);
+      
+      
+      var point = new GLatLng(59.437177,24.736311);
+      var marker = createMarker(point,"Toompark","<b>Toompark</b></br></br><img src='rvaljak_API_pildid/toompark.jpg'>")
+      map.addOverlay(marker);
+      
+      var point = new GLatLng(59.433685,24.736826);
+      var marker = createMarker(point,"Hirvepark<br>","<b>Hirvepark</b></br></br><img src='rvaljak_API_pildid/hirvepark.jpg'>")
+      map.addOverlay(marker);           
+                       
+                       
+
+      var point = new GLatLng(59.435654,24.752582);
+      var marker = createMarker(point,"Tammsaare park","<b>Tammsaare park</b></br></br><img src='rvaljak_API_pildid/tammsaare.jpg'>")
+      map.addOverlay(marker);
+      
+      var point = new GLatLng(59.431606,24.755511);
+      var marker = createMarker(point,"Lembitu park","<b>Lembitu park</b></br></br><img src='rvaljak_API_pildid/lembitu.jpg'>")
+      map.addOverlay(marker);
+      
+      var point = new GLatLng(59.434056,24.766095);
+      var marker = createMarker(point,"Politseiaed<br>","<b>Politseiaed</b></br><img src='rvaljak_API_pildid/politseiaed.jpg'>")
+      map.addOverlay(marker);
+      
+
+
+      var point = new GLatLng(59.427639,24.759057);
+      var marker = createMarker(point,"Tiigiveski park","<b>Tiigiveski park</b></br><img src='rvaljak_API_pildid/tiigiveski.jpg'>")
+      map.addOverlay(marker);
+      
+      var point = new GLatLng(59.422924,24.753782);
+      var marker = createMarker(point,"Vaikne park","<b>Vaikne park</b></br><img src='rvaljak_API_pildid/vaikne.jpg'>")
+      map.addOverlay(marker);                                             
+                       
+      // put the assembled side_bar_html contents into the side_bar div 
+      document.getElementById("side_bar").innerHTML = side_bar_html; 
+       
+    } 
+
+    else { 
+      alert("Sorry, the Google Maps API is not compatible with this browser"); 
+    } 
+
+    // This Javascript is based on code provided by the 
+    // Community Church Javascript Team 
+    // http://www.bisphamchurch.org.uk/    
+    // http://econym.org.uk/gmap/ 
+
+    //]]> 
+    </script> 
+     
+  </body> 
+
+</html>

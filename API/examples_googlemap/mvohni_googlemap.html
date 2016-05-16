@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <title>Google Maps</title>
+<!-- tmk.edu.ee key ABQIAAAATL9di-v6l4X9XtMiDEKW2hROKbum6Rc2eF9b_5oJlUsIDKGwbxTutnabLO7Y3SzloxvHu4hznkl0VQ -->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAATL9di-v6l4X9XtMiDEKW2hROKbum6Rc2eF9b_5oJlUsIDKGwbxTutnabLO7Y3SzloxvHu4hznkl0VQ" type="text/javascript"></script>
+  </head>
+  <body onunload="GUnload()">
+
+    <!-- you can use tables or divs for the overall layout -->
+
+    
+    <!-- override css -->
+    <style>
+    img {
+      background: transparent;
+      #border: 1px solid #DCDCDC;
+      padding: 3px;
+    }
+    img.float-right {
+      margin: 5px 0px 5px 15px;  
+    }
+    img.float-left {
+      margin: 5px 15px 5px 0px;
+    }
+    
+   
+    </style>
+
+
+    <table>
+      <tr>
+        <td>
+           <div id="map" style="width: 968px; height: 700px"></div>
+        </td>
+        <td width = 150 valign="top">
+            <br style="font-family:"Times New Roman", Times, serif"></br>Tallinna Statoilid</br></br>
+           <div id="side_bar"></div>
+          
+        </td>
+      </tr>
+    </table>
+
+
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view Google Maps, enable JavaScript by changing your browser options, and then 
+      try again.
+    </noscript>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    if (GBrowserIsCompatible()) {
+      
+      // this variable will collect the html which will eventually be placed in the side_bar
+      var side_bar_html = "";
+     
+      // arrays to hold copies of the markers and html used by the side_bar
+      // because the function closure trick doesnt work there
+      var gmarkers = [];
+
+
+     // This function zooms in or out
+      // its not necessary to check for out of range zoom numbers, because the API checks
+      function myzoom(a) {
+        map.setZoom(map.getZoom() + a);
+      }
+
+      function mymapmode(a) {
+        map.setMapType(a);
+      }
+      
+      function mydesiredmap(maptype,mapzoom) {
+        map.setMapType(maptype);
+        map.setCenter(new GLatLng(59.414775, 24.724131), mapzoom);
+      }      
+       
+        var myIcon = new GIcon(G_DEFAULT_ICON);
+        myIcon.image = "mvohni_pildid/statoil.png";
+        var markerOptions = { icon:myIcon };
+   
+      // A function to create the marker and set up the event window
+      function createMarker(point,name,html) {
+        var marker = new GMarker(point, markerOptions);
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        // save the info we need to use later for the side_bar
+        gmarkers.push(marker);
+        // add a line to the side_bar html
+        side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<\/a><br>';
+         return marker;
+      }
+
+
+      // This function picks up the click and opens the corresponding info window
+      function myclick(i) {
+        GEvent.trigger(gmarkers[i], "click");
+      }
+      
+      <!-- google map coordinates -->
+      <!-- http://www.gorissen.info/Pierre/maps/googleMapLocation.php -->
+      <!-- http://www.dishpointer.com -->       
+     
+
+    
+      var map = new GMap2(document.getElementById("map"));
+      map.setMapType(G_SATELLITE_MAP);
+      map.addControl(new GLargeMapControl3D()); 
+      map.setCenter(new GLatLng(59.436696,24.751511), 12);
+      var customUI = map.getDefaultUI();
+      customUI.controls.scalecontrol = false;
+      map.setUI(customUI);
+      
+
+     
+      var point = new GLatLng(59.392494,24.720697);
+      var marker = createMarker(point,"Järve Statoil","<b>Pärnu mnt 180</b><img src='mvohni_pildid/statoil01.jpg'>")
+      map.addOverlay(marker);                                           
+                       
+      var point = new GLatLng(59.427896,24.719238);
+      var marker = createMarker(point,"Endla Statoil","<b>Endla 52</b><img src='mvohni_pildid/statoil2.jpg'>")
+      map.addOverlay(marker);                         
+                       
+      var point = new GLatLng(59.423633,24.649919);
+      var marker = createMarker(point,"Paldiski maantee Statoil","<b>Paldiski maantee 106</b><img src='mvohni_pildid/statoil3.jpg'>")
+      map.addOverlay(marker);     
+
+      var point = new GLatLng(59.40445,24.732671);
+      var marker = createMarker(point,"Järvevana Statoil","<b>Järvevana tee 2</b><img src='mvohni_pildid/Statoil4.jpg'>")
+      map.addOverlay(marker);      
+     
+      var point = new GLatLng(59.409626,24.687481);
+      var marker = createMarker(point,"A.H.Tammsaare tee Statoil","<b>A.H.Tammsaare tee 111</b><img src='mvohni_pildid/statoil5.jpg'>")
+      map.addOverlay(marker);
+     
+      var point = new GLatLng(59.424692,24.78919);
+      var marker = createMarker(point,"Ülemiste Statoil","<b>Ülemiste 1</b><img src='mvohni_pildid/statoil6.jpg'>")
+      map.addOverlay(marker);
+     
+      var point = new GLatLng(59.400802,24.695485);
+      var marker = createMarker(point,"J. Sütiste tee Statoil","<b>J. Sütiste tee 1</b><img src='mvohni_pildid/statoil7.jpg'>")
+      map.addOverlay(marker);
+     
+      var point = new GLatLng(59.444464,24.747047);
+      var marker = createMarker(point,"Lootsi Statoil","<b>Sadama, Lootsi 1</b><img src='mvohni_pildid/statoil8.jpg'>")
+      map.addOverlay(marker);
+     
+      var point = new GLatLng(59.433117,24.714561);
+      var marker = createMarker(point,"Sõle Statoil","<b>Paldiski maantee 44</b><img src='mvohni_pildid/statoil9.jpg'>")
+      map.addOverlay(marker);
+     
+      var point = new GLatLng(59.443613,24.87618);
+      var marker = createMarker(point,"Mustakivi Statoil","<b>Mahtra 29</b><img src='mvohni_pildid/statoil10.jpg'>")
+      map.addOverlay(marker);
+                       
+   
+   
+      // put the assembled side_bar_html contents into the side_bar div
+      document.getElementById("side_bar").innerHTML = side_bar_html;
+      
+    }
+
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+
+    // This Javascript is based on code provided by the
+    // Community Church Javascript Team
+    // http://www.bisphamchurch.org.uk/   
+    // http://econym.org.uk/gmap/
+
+    //]]>
+    </script>
+    
+  </body>
+
+</html>
