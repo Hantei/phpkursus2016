@@ -60,11 +60,11 @@ echo '
 	</tr> 
 	<tr> 
   		<td>Lemmikloom kaasas:</td> 
-  		<td><input type=checkbox name="cat">Kass<br />
-			<input type=checkbox name="dog">Koer<br />
-			<input type=checkbox name="horse">Hobune<br />
-			<input type=checkbox name="eagle">Kotkas<br />
-			<input type=checkbox name="rat">Rott</td> 
+  		<td><input type="checkbox" name="cat">Kass<br />
+			<input type="checkbox" name="dog">Koer<br />
+			<input type="checkbox" name="horse">Hobune<br />
+			<input type="checkbox" name="eagle">Kotkas<br />
+			<input type="checkbox" name="rat">Rott</td> 
 	</tr> 
 	<tr> 
   		<td>Kirjeldus:</td> 

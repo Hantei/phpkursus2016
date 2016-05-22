@@ -15,19 +15,19 @@ Tee tsükliga 20 "radio buttonit". Pane neile kõigile üks nimi "radio" ja erin
 echo '<table border="1" cellpadding="5px"><tr><td>';
 
 for ($i=1; $i < 21; $i++) { 
-  echo "$i. <input type=checkbox name='box[$i]'><br />"; 
+  echo $i . '. <input type="checkbox" name="box[' . $i . ']"><br />'; 
 } 
 
 echo '</td><td>';
 
 for ($i=1; $i < 21; $i++) { 
-  echo "$i. <input type=text name='cell[$i]'><br />"; 
+  echo $i . '. <input type="text" name="cell[' . $i . ']"><br />'; 
 } 
 
 echo '</td><td>';
 
 for ($i=1; $i < 21; $i++) { 
-  echo "$i. <input type=radio name='radio' value='value[$i]'><br />"; 
+  echo $i . '. <input type="radio" name="radio" value="value[' . $i . ']"><br />'; 
 }
 
 echo '</td></tr></table>';

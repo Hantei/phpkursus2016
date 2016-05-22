@@ -34,10 +34,10 @@ echo '
 			<td>WEBSITE:</td>
 		</tr>
 		<tr>
-			<td><b>' . $meowl[name] . '</b></td>
-			<td><i>' . $meowl[address] . '</i></td>
-			<td><img src="' . $meowl[pic_name] . '" alt="Meowls" height="150px" width="220px"></td>
-			<td><a href="' . $meowl[www] . '">Meowl page</a></td>
+			<td><b>' . $meowl['name'] . '</b></td>
+			<td><i>' . $meowl['address'] . '</i></td>
+			<td><img src="' . $meowl['pic_name'] . '" alt="Meowls" height="150px" width="220px"></td>
+			<td><a href="' . $meowl['www'] . '">Meowl page</a></td>
 		</tr>
 	</table>
 

@@ -33,7 +33,7 @@ $colours[15]="Teal";
 echo '<table border="1" cellpadding="5px"><tr><td>';
 
 foreach ($colours as $key => $val) {
-  	echo "$key. <span style='color:$val'>$val</span><br />"; 
+  	echo $key . '. <span style="color:' . $val . '">' . $val . '</span><br />'; 
 } 
 echo '</td></tr></table>';
 
