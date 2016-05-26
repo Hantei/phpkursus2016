@@ -54,7 +54,7 @@ function number_info($i) {
 	}
 
 
-	echo "$i ruudus on: 2^$i = " . pow(2,$i);
+	echo "$i ruudus on: $i * $i = " . ($i * $i);
 	echo " ja ruutjuur $i-st on " . pow($i, 1/2);
 }
 
