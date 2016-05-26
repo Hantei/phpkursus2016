@@ -2,7 +2,7 @@
 
 header('Content-Type: text/html; charset=utf-8');
 
-//Hantei, phpkursus2016, 22.05.2016
+//Hantei, phpkursus2016, 26.05.2016
 //Ylesanne 0501
 
 /*
@@ -14,18 +14,48 @@ Sinu sünnipäev on: 25.03.1979
 Peale aastat 2000 on isikukoodi esimesed numbrid 5 ja 6.
 
 */
+echo '<form action="" method="post">';
+echo 'Sisesta oma isikukood: <input type="text" name="ID">';
+echo '<input type="submit" name="Send" value="Saada"><br /><br />';
+echo '</form>';
 
-echo '<table border="1" cellpadding="5px">'; 
+if(isset($_POST['ID'])) {
+	get_birthday($_POST['ID']);
+}
 
-for ($i=1; $i <= 10; $i++) { 
-	echo '<tr>'; 
-		for($j=1; $j <= 10; $j++) { 
-		echo '<td align="center"><b>' . $i*$j . '</b></td>'; 
-        } 
-	echo '</tr>'; 
-} 
-echo '</table>'; 
+function get_birthday ($ID) {
+	echo 'Sinu isikukood on: ' . $ID . '<br />';
+	$error='Vigane isikukood!';
 
-echo "<br><strong>Ylesanne 0501</strong>";
+	if(strlen($ID)==11 && ctype_digit($ID)) {
+		if ($ID[0]==1 || $ID[0]==2) {
+			$year='18' . $ID[1] . $ID[2];
+		}
+		elseif ($ID[0]==3 || $ID[0]==4) {
+			$year='19' . $ID[1] . $ID[2];
+		}
+		elseif ($ID[0]==5 || $ID[0]==6) {
+			$year='20' . $ID[1] . $ID[2];
+		}
+		else {
+			$ID[0]=0;
+		}
+
+		$month=$ID[3] . $ID[4];
+		$day=$ID[5] . $ID[6];
+
+		if ($ID[0]==!0 && checkdate($month, $day, $year)==true) {
+			echo 'Sinu sünnipäev on: ' . $day . '.' . $month . '.' . $year;
+		}
+		else {
+			echo $error;
+		}
+	}
+	else {
+		echo $error;
+	}
+}
+
+echo "<br /><br /><strong>Ylesanne 0501</strong>";
 
 ?>
