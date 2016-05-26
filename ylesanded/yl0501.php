@@ -14,8 +14,8 @@ Sinu sünnipäev on: 25.03.1979
 Peale aastat 2000 on isikukoodi esimesed numbrid 5 ja 6.
 
 */
-echo '<form action="" method="post">';
-echo 'Sisesta oma isikukood: <input type="text" name="ID">';
+echo '<form action="yl0501.php" method="post">';
+echo 'Sisesta oma isikukood: <input type="text" name="ID" value="">';
 echo '<input type="submit" name="Send" value="Saada"><br /><br />';
 echo '</form>';
 

@@ -19,7 +19,7 @@ Proovida funktsiooni 10 erineva sisendarvudega.
 */
 
 function fun_math($a, $b, $c) {
-	$error='Tingimused ei sobi tehte sooritamiseks <br />';
+	$error='<span style="color:red">Tingimused ei sobi tehte sooritamiseks</span> <br />';
 	echo '<u>Sisendarvud: a=' . $a . ', b=' . $b .' ja c=' . $c . '</u><br />';
 
 	if ($a<$b) {
@@ -32,7 +32,7 @@ function fun_math($a, $b, $c) {
 		echo $error;
 	}
 
-	if ($a>$b && $a==!0 && $b==!0) {
+	if ($a>$b && $a!=0 && $b!=0) {
 		echo '<strong>Kui a > b ning kumbki ei ole 0: </strong>';
 		echo 'a^b=';
 		echo pow($a, $b) . '<br />';
@@ -52,7 +52,7 @@ function fun_math($a, $b, $c) {
 		echo $error;
 	}
 
-	if ($a*$b=$c) {
+	if ($a*$b==$c) {
 		echo '<strong>Kui a * b = c: </strong>';
 		echo $c . '-(2*(' . $a . '*' . $b . '))=';
 		echo $c-(2*($a*$b)) . '<br />';
@@ -64,7 +64,8 @@ function fun_math($a, $b, $c) {
 
 	if ($a>=1 && $b>=1 && $c>=1 && $a>$b && $b>$c) {
 		echo '<strong>Kui a > b ja b > c ja arvud ei ole null ega negatiivsed: </strong>';
-		echo (max($a, $b, $c)+max($a, $b, $c))/min($a, $b, $c) . '<br />';
+		echo '(' . $a . '+' . $b . ')/' . $c . '=';
+		echo ($a+$b)/$c . '<br />';
 	}
 	else {
 		echo '<strong>Kui a > b ja b > c ja arvud ei ole null ega negatiivsed: </strong>';
@@ -84,7 +85,22 @@ echo '<br />';
 fun_math (2,2,1);
 echo '<br />';
 echo '<br />';
-fun_math (6,3,2);
+fun_math (8,7,3);
+echo '<br />';
+echo '<br />';
+fun_math (2,3,6);
+echo '<br />';
+echo '<br />';
+fun_math (2,2,4);
+echo '<br />';
+echo '<br />';
+fun_math (4,2,8);
+echo '<br />';
+echo '<br />';
+fun_math (12,12,5);
+echo '<br />';
+echo '<br />';
+fun_math (5,22,200);
 
 echo "<br /><strong>Ylesanne 0503</strong>";
 
